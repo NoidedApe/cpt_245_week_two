@@ -1,0 +1,7 @@
+.env
+*.log
+mvnw.cmd
+mvnw
+target/
+.vscode/
+.m2
