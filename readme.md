@@ -14,34 +14,26 @@ Further, you can write functions which include "parameters", which are variables
 ### Instructions
 1. **Review the following materials**:
 
-   - [W3Schools Python Functions]([https://www.w3schools.com/python/default.asp](https://www.w3schools.com/python/python_functions.asp))
-        Please read this introduction regarding Python functions!
+   - [W3Schools Java Methods](https://www.w3schools.com/java/java_methods.asp)
 
-   ### Reference
+        Please read this introduction regarding Java functions (methods)!
 
-   The following are libraries you will need to install to make the programs we will be running this week work!  Don't worry if you don't follow what they are doing (yet!) you will just need them for the assignments to run.  These are reference materials if you'd like to read more about them!
+   - [Apache Maven](https://maven.apache.org/what-is-maven.html)
 
-   - [Python DotEnv](https://pypi.org/project/python-dotenv/)
-        
-        You will need to install this library to load environment variables for this program to work!  Environment variables are VERY useful for migrating your programs/scripts from computer to computer without needing to search for configuration changes! 
+        Please read this introduction to Apache Maven.  This is a commonly used Java build tool which is known for it's pom(Project Object Model)-based project organization structure as well as it's dependency management functionality!  While we will be starting into Spring.io relatively soon and won't be building manually with this tool I have historically built many Java-based projects using the Maven toolkit with Spring!
+     
+   - [Java DotEnv](https://github.com/cdimascio/dotenv-java)
 
-   - [SQL Alchemy](https://www.sqlalchemy.org/)
-
-        This library is useful for connecting to a variety of Structured Query Language (SQL) databases! Though you will not be required to write SQL in this class, these "relational" databases as they are known are very useful for storing a myriad of data in an efficently organized and easily queried way!  In fact you have already been interacting with a PostgreSQL database through the Discord server! 
-
+        This project utilizes the Java port of DotEnv, which is a way to easily create and organize environment variables at the project-level.  You will see .env files everywhere in the working world as they are a super easy way to create variables you can use project-wide in a single, easily referenced place!
 
 3. **Complete the following tasks**:
-   - assignment_1.py:
-     
-       This assignment will provide an overview of functions as well as introduce you to the concept of installing libraries!
-       
-   - assignment_2.py:
-     
-       This assignment will continue to help build up your ability to review and fix other people's code!  Please make sure you fill out the .env file (I will post .env file variables on your class Discords) 
-       and fix the code errors.  Once the code has been fixed the program should run and you will see a success message!
-   - assignment_3.py:
-     
-       Here be some practice with functions!  Please complete the functions as assigned in this file!
+   - App.java
+
+        Please review the App.java file.  You will find SEVERAL errors.  This week we will work on furthering your code-reading abilities through some hands-on practice!  The scenario is "Chett", a co-worker of yours you begrudingly deal with (read - spend a lot of time cleaning up after), has committed some modifications to this Java project in GitHub over the weekend.  Unfortunately...he didn't spend a lot of time reviewing and testing his changes before committing them.  To further the pain, he is out today and you are unable to get ahold of him (again).  Your task is to fix his errors and get this program to run again!  To do so you will need to:
+
+        - Fill out the .env file in the project (I will provide the structure to you in your class Discord)
+        - Fix the errors in the code with as few changes as possible (there are several!)
+        - Once completed run the code and you should see a "Status: 200 - success" style message
    
 4. **Please commit your code to a public GitHub repository**
     - Once you have completed all three tasks in your code please commit your updated python code to a public repository in GitHub!
