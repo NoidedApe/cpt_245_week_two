@@ -23,12 +23,23 @@ class Student {
     String class_code;
     String passkey;
 
+
+    /**
+     * Class Initializer used to create empty Student object
+     *
     public Student() {
         this.cpt_username = "";
         this.class_code = "";
         this.passkey = "";
     }
+    */
 
+    /**
+     * Class Initializer overload with all parameters!
+     * @param cpt_username - CPT username
+     * @param class_code - Class code
+     * @param passkey - Passkey for assignment
+     */
     public Student(String cpt_username, String class_code, String passkey) {
         this.cpt_username = cpt_username;
         this.class_code = class_code;
@@ -81,6 +92,8 @@ public class App {
             if(student.get_username() != "") {
                 sendPostRequest(student);
             }
+        } else {
+            System.out.println("Your code should not get here!");
         }
         
     }
