@@ -30,6 +30,8 @@ Further, you can write functions which include "parameters", which are variables
    - App.java
 
         Please review the App.java file.  You will find SEVERAL errors.  This week we will work on furthering your code-reading abilities through some hands-on practice!  The scenario is "Chett", a co-worker of yours you begrudingly deal with (read - spend a lot of time cleaning up after), has committed some modifications to this Java project in GitHub over the weekend.  Unfortunately...he didn't spend a lot of time reviewing and testing his changes before committing them.  To further the pain, he is out today and you are unable to get ahold of him (again).  Your task is to fix his errors and get this program to run again!  To do so you will need to:
+        
+        You will also want to make sure you have installed the Java extensions for Visual Studio Code!  This will allow you to press the "play" button at the top of the screen to run/debug your code!
 
         - Fill out the .env file in the project (I will provide the structure to you in your class Discord)
         - Fix the errors in the code with as few changes as possible (there are several!)
