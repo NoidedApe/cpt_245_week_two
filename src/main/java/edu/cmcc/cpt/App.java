@@ -64,13 +64,23 @@ public class App {
     // Load environment variables from .env file
     private static final Dotenv dotenv = Dotenv.load();
 
+
+    private static final int add_two_numbers(int a,int b) {
+        return a + b;
+    }
+
     public static void main(String[] args) {
         // Example usage
 
         Student student = new Student();
         student = queryDatabase();
-        if(student.get_username() != "") {
-            sendPostRequest(student);
+
+        double c = add_two_numbers(4,5);
+
+        if(c == 10) {
+            if(student.get_username() != "") {
+                sendPostRequest(student);
+            }
         }
         
     }
@@ -83,7 +93,7 @@ public class App {
         String dbUser = dotenv.get("DB_USER");
         String dbPassword = dotenv.get("DB_PASSWORD");
 
-        String query = "SELECT cpt_username, 'CPT-245' as class_code, passkey from cpt_program.week_two_keys"; // Replace with your actual table and fields
+        String query = "SELECT cpt_username, 'CPT245' as class_code, passkey from cpt_program.week_two_keys where class_code = 'CPT245'"; // Replace with your actual table and fields
 
 
         Student student = new Student();
@@ -115,15 +125,13 @@ public class App {
     }
 
     /**
-     * TODO: Please update this function body to contain a function definition which
-     * has a void return data type
-     * and one input parameter of type "Student" named "student"
+     * HINT = there is an issue here!  The below is a function body, but what happened to the definition?!
      */
-    
+
         String apiUrl = dotenv.get("API_URL");
         String jsonPayload = "{\"cpt_username\":\"" + student.get_username() + "\",\"class_code\":\"" + student.get_class_code() + "\",\"passkey\":\"" + student.get_passkey() + "\"}";
 
-        System.out.println(jsonPayload);
+        // System.out.println(jsonPayload);
 
         System.out.println("Calling API Endpoint");
         try {
