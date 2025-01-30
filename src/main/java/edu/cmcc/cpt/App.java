@@ -14,9 +14,8 @@ import java.net.URL;
 
 
 
-/**
- * Student class for returning data
- */
+// Student class for returning data
+ 
 
 class Student {
     String cpt_username;
@@ -24,15 +23,15 @@ class Student {
     String passkey;
 
 
-    /**
-     * Class Initializer used to create empty Student object
-     *
+    
+//       Class Initializer used to create empty Student object
+     
     public Student() {
         this.cpt_username = "";
         this.class_code = "";
         this.passkey = "";
     }
-    */
+  
 
     /**
      * Class Initializer overload with all parameters!
@@ -140,55 +139,56 @@ public class App {
     /**
      * HINT = there is an issue here!  The below is a function body, but what happened to the definition?!
      */
-
-        String apiUrl = dotenv.get("API_URL");
-        String jsonPayload = "{\"cpt_username\":\"" + student.get_username() + "\",\"class_code\":\"" + student.get_class_code() + "\",\"passkey\":\"" + student.get_passkey() + "\"}";
-
-        // System.out.println(jsonPayload);
-
-        System.out.println("Calling API Endpoint");
-        try {
-            URL url = new URL(apiUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setDoOutput(true);
-
-            // Write JSON payload to the request body
-            try (OutputStream os = connection.getOutputStream()) {
-                os.write(jsonPayload.getBytes("UTF-8"));
-                os.flush();
-            }
-
-            // Read the response
-            int responseCode = connection.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
-
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-
-                try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = in.readLine()) != null) {
-                        response.append(line);
-                    }
-
-
-                    System.out.println("POST request successful.");
-                    System.out.println("Result: " + response.toString());
-
-
-
+        public static void sendPostRequest(Student student){
+            String apiUrl = dotenv.get("API_URL");
+            String jsonPayload = "{\"cpt_username\":\"" + student.get_username() + "\",\"class_code\":\"" + student.get_class_code() + "\",\"passkey\":\"" + student.get_passkey() + "\"}";
+    
+            // System.out.println(jsonPayload);
+            System.out.println("Calling API Endpoint");
+            try {
+                URL url = new URL(apiUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json");
+                connection.setDoOutput(true);
+    
+                // Write JSON payload to the request body
+                try (OutputStream os = connection.getOutputStream()) {
+                    os.write(jsonPayload.getBytes("UTF-8"));
+                    os.flush();
                 }
-            } else {
-                System.out.println("POST request failed.");
-                System.out.println("Result: " + connection.toString());
+    
+                // Read the response
+                int responseCode = connection.getResponseCode();
+                System.out.println("Response Code: " + responseCode);
+    
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+    
+                    try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+    
+                        StringBuilder response = new StringBuilder();
+                        String line;
+                        while ((line = in.readLine()) != null) {
+                            response.append(line);
+                        }
+    
+    
+                        System.out.println("POST request successful.");
+                        System.out.println("Result: " + response.toString());
+    
+    
+    
+                    }
+                } else {
+                    System.out.println("POST request failed.");
+                    System.out.println("Result: " + connection.toString());
+                }
+    
+            } catch (Exception e) {
+                System.err.println("Error sending POST request: " + e.getMessage());
+                e.printStackTrace();
             }
-
-        } catch (Exception e) {
-            System.err.println("Error sending POST request: " + e.getMessage());
-            e.printStackTrace();
         }
+
+      
     }
-}
